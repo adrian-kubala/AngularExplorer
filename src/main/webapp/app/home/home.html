@@ -8,7 +8,7 @@
 
     <span ng-repeat="root in vm.roots track by root.id">
 
-      <h2>Root:<a ng-click="rootId = root.id">{{root.name}}</a></h2>
+      <h2>Root:&nbsp<a ng-click="rootId = root.id">{{root.name}}</a></h2>
 
       <span ng-repeat="directory in vm.directories">
         <span ng-if="directory.root.id == rootId">
