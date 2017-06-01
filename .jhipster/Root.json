@@ -1,0 +1,22 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "directory",
+            "otherEntityName": "directory",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "root"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170601133413",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "root",
+    "pagination": "no"
+}
