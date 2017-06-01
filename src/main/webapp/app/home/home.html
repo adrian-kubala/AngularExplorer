@@ -13,11 +13,11 @@
       <span ng-repeat="directory in vm.directories">
         <span ng-if="directory.root.id == x">
 
-          <h2>-----<a ng-click="y = directory.id">{{directory.name}}</a></h2>
+          <h3>------------<a ng-click="y = directory.id">{{directory.name}}</a></h3>
 
           <span ng-repeat="file in vm.files">
             <span ng-if="file.directory.id == y">
-              <h3>----------{{file.name}}</h3><br>
+              <h4>------------------------{{file.name}}</h4>
             </span>
           </span>
 
