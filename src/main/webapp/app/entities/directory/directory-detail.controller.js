@@ -5,9 +5,9 @@
         .module('angularExplorerApp')
         .controller('DirectoryDetailController', DirectoryDetailController);
 
-    DirectoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Directory', 'Root'];
+    DirectoryDetailController.$inject = ['$scope', '$rootScope', '$stateParams', 'previousState', 'entity', 'Directory', 'Root', 'File'];
 
-    function DirectoryDetailController($scope, $rootScope, $stateParams, previousState, entity, Directory, Root) {
+    function DirectoryDetailController($scope, $rootScope, $stateParams, previousState, entity, Directory, Root, File) {
         var vm = this;
 
         vm.directory = entity;

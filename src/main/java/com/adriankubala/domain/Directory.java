@@ -1,11 +1,14 @@
 package com.adriankubala.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -29,6 +32,11 @@ public class Directory implements Serializable {
     @ManyToOne(optional = false)
     @NotNull
     private Root root;
+
+    @OneToMany(mappedBy = "directory")
+    @JsonIgnore
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<File> files = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -62,6 +70,31 @@ public class Directory implements Serializable {
 
     public void setRoot(Root root) {
         this.root = root;
+    }
+
+    public Set<File> getFiles() {
+        return files;
+    }
+
+    public Directory files(Set<File> files) {
+        this.files = files;
+        return this;
+    }
+
+    public Directory addFile(File file) {
+        this.files.add(file);
+        file.setDirectory(this);
+        return this;
+    }
+
+    public Directory removeFile(File file) {
+        this.files.remove(file);
+        file.setDirectory(null);
+        return this;
+    }
+
+    public void setFiles(Set<File> files) {
+        this.files = files;
     }
 
     @Override

@@ -4,7 +4,7 @@ describe('Controller Tests', function() {
 
     describe('Directory Management Detail Controller', function() {
         var $scope, $rootScope;
-        var MockEntity, MockPreviousState, MockDirectory, MockRoot;
+        var MockEntity, MockPreviousState, MockDirectory, MockRoot, MockFile;
         var createController;
 
         beforeEach(inject(function($injector) {
@@ -14,6 +14,7 @@ describe('Controller Tests', function() {
             MockPreviousState = jasmine.createSpy('MockPreviousState');
             MockDirectory = jasmine.createSpy('MockDirectory');
             MockRoot = jasmine.createSpy('MockRoot');
+            MockFile = jasmine.createSpy('MockFile');
             
 
             var locals = {
@@ -22,7 +23,8 @@ describe('Controller Tests', function() {
                 'entity': MockEntity,
                 'previousState': MockPreviousState,
                 'Directory': MockDirectory,
-                'Root': MockRoot
+                'Root': MockRoot,
+                'File': MockFile
             };
             createController = function() {
                 $injector.get('$controller')("DirectoryDetailController", locals);

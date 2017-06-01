@@ -9,6 +9,12 @@
                 "required"
             ],
             "otherEntityField": "name"
+        },
+        {
+            "relationshipName": "file",
+            "otherEntityName": "file",
+            "relationshipType": "one-to-many",
+            "otherEntityRelationshipName": "directory"
         }
     ],
     "fields": [

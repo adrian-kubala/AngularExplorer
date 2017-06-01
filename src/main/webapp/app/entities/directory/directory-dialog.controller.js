@@ -5,15 +5,16 @@
         .module('angularExplorerApp')
         .controller('DirectoryDialogController', DirectoryDialogController);
 
-    DirectoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Directory', 'Root'];
+    DirectoryDialogController.$inject = ['$timeout', '$scope', '$stateParams', '$uibModalInstance', 'entity', 'Directory', 'Root', 'File'];
 
-    function DirectoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Directory, Root) {
+    function DirectoryDialogController ($timeout, $scope, $stateParams, $uibModalInstance, entity, Directory, Root, File) {
         var vm = this;
 
         vm.directory = entity;
         vm.clear = clear;
         vm.save = save;
         vm.roots = Root.query();
+        vm.files = File.query();
 
         $timeout(function (){
             angular.element('.form-group:eq(1)>input').focus();
