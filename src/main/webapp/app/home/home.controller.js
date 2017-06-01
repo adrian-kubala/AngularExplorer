@@ -5,29 +5,34 @@
         .module('angularExplorerApp')
         .controller('HomeController', HomeController);
 
-    HomeController.$inject = ['$scope', 'Principal', 'LoginService', '$state'];
+    HomeController.$inject = ['Root', 'Directory', 'File'];
 
-    function HomeController ($scope, Principal, LoginService, $state) {
+    function HomeController (Root, Directory, File) {
         var vm = this;
 
-        vm.account = null;
-        vm.isAuthenticated = null;
-        vm.login = LoginService.open;
-        vm.register = register;
-        $scope.$on('authenticationSuccess', function() {
-            getAccount();
-        });
+        vm.roots = [];
+        vm.directories = [];
+        vm.files = [];
 
-        getAccount();
+        getData();
 
-        function getAccount() {
-            Principal.identity().then(function(account) {
-                vm.account = account;
-                vm.isAuthenticated = Principal.isAuthenticated;
-            });
-        }
-        function register () {
-            $state.go('register');
+        function getData() {
+
+          Root.query(function(result) {
+            vm.roots = result;
+            vm.searchQuery = null;
+          });
+
+          Directory.query(function(result) {
+            vm.directories = result;
+            vm.searchQuery = null;
+          });
+
+          File.query(function(result) {
+            vm.files = result;
+            vm.searchQuery = null;
+          });
         }
     }
+
 })();
