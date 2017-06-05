@@ -14,6 +14,9 @@
         vm.directories = [];
         vm.files = [];
 
+        vm.rootId = 0;
+        vm.directoryId = 0;
+
         getData();
 
         function getData() {
