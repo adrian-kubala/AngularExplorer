@@ -47,6 +47,17 @@
             return 0
           }
         }
+
+        vm.toggleDirectory = toggleDirectory;
+
+        function toggleDirectory(id) {
+          console.log(id)
+          if (id != vm.directoryId) {
+            return id
+          } else {
+            return 0
+          }
+        }
     }
 
 })();
