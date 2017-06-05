@@ -36,6 +36,17 @@
             vm.searchQuery = null;
           });
         }
+
+        vm.toggleRoot = toggleRoot;
+
+        function toggleRoot(id) {
+          console.log(id)
+          if (id != vm.rootId) {
+            return id
+          } else {
+            return 0
+          }
+        }
     }
 
 })();
